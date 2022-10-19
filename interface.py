@@ -11,6 +11,11 @@ y = 100
 
 manager = poker.Manager()
 
+
+for j in range(12):
+    for i in range(2):
+        tk.Label(win, text=f'{i+4}-{j}').grid(row=i, column=j)
+
 def button_1_func():
     numbers = manager.throw()
     label_1.config(text=str(numbers[0]))
@@ -19,6 +24,7 @@ def button_1_func():
     label_4.config(text=str(numbers[3]))
     label_5.config(text=str(numbers[4]))
     label_6.config(text=str(numbers[5]))
+
 
 def button_2_func():
     numbers = manager.throw()
@@ -29,97 +35,175 @@ def button_2_func():
     label_52.config(text=str(numbers[4]))
     label_62.config(text=str(numbers[5]))
 
+def change_1():
+    number = manager.re_throw(1)
+    label_1.config(text=str(number[0]))
+
+def change_2():
+    number = manager.re_throw(1)
+    label_2.config(text=str(number[0]))
 
 
+def change_3():
+    number = manager.re_throw(1)
+    label_3.config(text=str(number[0]))
 
 
-label_1 = tk.Label(win,
+def change_4():
+    number = manager.re_throw(1)
+    label_4.config(text=str(number[0]))
+
+
+def change_5():
+    number = manager.re_throw(1)
+    label_5.config(text=str(number[0]))
+
+
+def change_6():
+    number = manager.re_throw(1)
+    label_6.config(text=str(number[0]))
+
+
+def change_12():
+    number = manager.re_throw(1)
+    label_12.config(text=str(number[0]))
+
+
+def change_22():
+    number = manager.re_throw(1)
+    label_22.config(text=str(number[0]))
+
+
+def change_32():
+    number = manager.re_throw(1)
+    label_32.config(text=str(number[0]))
+
+
+def change_42():
+    number = manager.re_throw(1)
+    label_42.config(text=str(number[0]))
+
+
+def change_52():
+    number = manager.re_throw(1)
+    label_52.config(text=str(number[0]))
+
+
+def change_62():
+    number = manager.re_throw(1)
+    label_62.config(text=str(number[0]))
+
+
+def choose():
+    pass
+
+
+button_combination_1 = tk.Button(win,
+                     command=choose)
+button_combination_2 = tk.Button(win,
+                     command=choose)
+button_combination_3 = tk.Button(win,
+                     command=choose)
+
+
+label_1 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
                    relief=tk.RAISED,
-                   )
-label_2 = tk.Label(win,
+                   command=change_1)
+label_2 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_3 = tk.Label(win,
+                   relief=tk.RAISED,
+                    command=change_2)
+label_3 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_4 = tk.Label(win,
+                   relief=tk.RAISED,
+                    command=change_3)
+label_4 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_5 = tk.Label(win,
+                   relief=tk.RAISED,
+                    command=change_4)
+label_5 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_6 = tk.Label(win,
+                   relief=tk.RAISED,
+                    command=change_5)
+label_6 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
+                   relief=tk.RAISED,
+                    command=change_6)
 
 
-label_12 = tk.Label(win,
+label_12 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_22 = tk.Label(win,
+                   relief=tk.RAISED,
+                command=change_12)
+label_22 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_32 = tk.Label(win,
+                   relief=tk.RAISED,
+                     command=change_22)
+label_32 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_42 = tk.Label(win,
+                   relief=tk.RAISED,
+                     command=change_32)
+label_42 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_52 = tk.Label(win,
+                   relief=tk.RAISED,
+                     command=change_42)
+label_52 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
-label_62 = tk.Label(win,
+                   relief=tk.RAISED,
+                     command=change_52)
+label_62 = tk.Button(win,
                    bg='#ede1ed',
                    fg='white',
                    font=('Arial', 20, 'bold'),
                    padx=20,
                    pady=20,
-                   relief=tk.RAISED)
+                   relief=tk.RAISED,
+                     command=change_62)
 
 
 button_1 = tk.Button(win,
