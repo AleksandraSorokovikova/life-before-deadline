@@ -1,7 +1,6 @@
 import tkinter as tk
 import poker
 
-
 win = tk.Tk()  # создание окна
 win.title('Lesson')  # название
 h = 1000
@@ -11,12 +10,17 @@ y = 100
 
 manager = poker.Manager()
 
+combs_buts1 = []
+combs_buts2 = []
 
 for j in range(12):
-    tk.Button(win, text='combination 1').grid(row=j, column=6)
+    combs_buts1.append(tk.Button(win, text='combination 1'))
+    combs_buts1[-1].grid(row=j, column=6)
 
 for j in range(12):
-    tk.Button(win, text='combination 2').grid(row=j, column=7)
+    combs_buts2.append(tk.Button(win, text='combination 2'))
+    combs_buts2[-1].grid(row=j, column=7)
+
 
 def button_1_func():
     numbers = manager.throw()
@@ -25,7 +29,11 @@ def button_1_func():
     label_3.config(text=str(numbers[2]))
     label_4.config(text=str(numbers[3]))
     label_5.config(text=str(numbers[4]))
-    label_6.config(text=str(numbers[5]))
+    combs = manager.get_combinations(numbers)
+    print(numbers)
+    print(combs)
+    for but, c in zip(combs_buts1, combs):
+        but.config(text=f'{c}: {str(combs[c])}')
 
 
 def button_2_func():
@@ -35,11 +43,15 @@ def button_2_func():
     label_32.config(text=str(numbers[2]))
     label_42.config(text=str(numbers[3]))
     label_52.config(text=str(numbers[4]))
-    label_62.config(text=str(numbers[5]))
+    combs = manager.get_combinations(numbers)
+    for but, c in zip(combs_buts2, combs):
+        but.config(text=f'{c}: {str(combs[c])}')
+
 
 def change_1():
     number = manager.re_throw(1)
     label_1.config(text=str(number[0]))
+
 
 def change_2():
     number = manager.re_throw(1)
@@ -59,11 +71,6 @@ def change_4():
 def change_5():
     number = manager.re_throw(1)
     label_5.config(text=str(number[0]))
-
-
-def change_6():
-    number = manager.re_throw(1)
-    label_6.config(text=str(number[0]))
 
 
 def change_12():
@@ -91,122 +98,98 @@ def change_52():
     label_52.config(text=str(number[0]))
 
 
-def change_62():
-    number = manager.re_throw(1)
-    label_62.config(text=str(number[0]))
-
-
 def choose():
     pass
 
 
 button_combination_1 = tk.Button(win,
-                     command=choose)
+                                 command=choose)
 button_combination_2 = tk.Button(win,
-                     command=choose)
+                                 command=choose)
 button_combination_3 = tk.Button(win,
-                     command=choose)
-
+                                 command=choose)
 
 label_1 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
-                   command=change_1)
+                    bg='#ede1ed',
+                    fg='white',
+                    font=('Arial', 20, 'bold'),
+                    padx=20,
+                    pady=20,
+                    relief=tk.RAISED,
+                    command=change_1)
 label_2 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                    bg='#ede1ed',
+                    fg='white',
+                    font=('Arial', 20, 'bold'),
+                    padx=20,
+                    pady=20,
+                    relief=tk.RAISED,
                     command=change_2)
 label_3 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                    bg='#ede1ed',
+                    fg='white',
+                    font=('Arial', 20, 'bold'),
+                    padx=20,
+                    pady=20,
+                    relief=tk.RAISED,
                     command=change_3)
 label_4 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                    bg='#ede1ed',
+                    fg='white',
+                    font=('Arial', 20, 'bold'),
+                    padx=20,
+                    pady=20,
+                    relief=tk.RAISED,
                     command=change_4)
 label_5 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                    bg='#ede1ed',
+                    fg='white',
+                    font=('Arial', 20, 'bold'),
+                    padx=20,
+                    pady=20,
+                    relief=tk.RAISED,
                     command=change_5)
-label_6 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
-                    command=change_6)
-
 
 label_12 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
-                command=change_12)
+                     bg='#ede1ed',
+                     fg='white',
+                     font=('Arial', 20, 'bold'),
+                     padx=20,
+                     pady=20,
+                     relief=tk.RAISED,
+                     command=change_12)
 label_22 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                     bg='#ede1ed',
+                     fg='white',
+                     font=('Arial', 20, 'bold'),
+                     padx=20,
+                     pady=20,
+                     relief=tk.RAISED,
                      command=change_22)
 label_32 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                     bg='#ede1ed',
+                     fg='white',
+                     font=('Arial', 20, 'bold'),
+                     padx=20,
+                     pady=20,
+                     relief=tk.RAISED,
                      command=change_32)
 label_42 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                     bg='#ede1ed',
+                     fg='white',
+                     font=('Arial', 20, 'bold'),
+                     padx=20,
+                     pady=20,
+                     relief=tk.RAISED,
                      command=change_42)
 label_52 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
+                     bg='#ede1ed',
+                     fg='white',
+                     font=('Arial', 20, 'bold'),
+                     padx=20,
+                     pady=20,
+                     relief=tk.RAISED,
                      command=change_52)
-label_62 = tk.Button(win,
-                   bg='#ede1ed',
-                   fg='white',
-                   font=('Arial', 20, 'bold'),
-                   padx=20,
-                   pady=20,
-                   relief=tk.RAISED,
-                     command=change_62)
-
 
 button_1 = tk.Button(win,
                      text='Бросить кубики',
@@ -225,6 +208,7 @@ button_2 = tk.Button(win,
                      command=button_2_func)
 
 button_2.grid(row=3, column=2, stick='e')
+
 
 def start():
     label_1.grid(row=0, column=0, stick='w')

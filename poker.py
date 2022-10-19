@@ -11,15 +11,11 @@ class Manager:
 
     def throw(self):
         self.is_first_try = True
-        numbers = [1, 2, 3, 4, 5, 6]
-        random.shuffle(numbers)
-        return numbers
+        return [random.randint(1, 6) for _ in range(5)]
 
     def re_throw(self, num):
         self.is_first_try = False
-        numbers = [1, 2, 3, 4, 5, 6]
-        random.shuffle(numbers)
-        return numbers[:num]
+        return [random.randint(1, 6) for _ in range(num)]
 
     def get_combinations(self, nums):
         d = {'1': -3, '2': -3, '3': -3, '4': -3, '5': -3, '6': -3,
