@@ -4,7 +4,7 @@ import poker
 
 win = tk.Tk()  # создание окна
 win.title('Lesson')  # название
-h = 500
+h = 1000
 w = 600
 x = 500
 y = 100
