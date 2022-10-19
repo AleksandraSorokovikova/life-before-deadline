@@ -13,8 +13,10 @@ manager = poker.Manager()
 
 
 for j in range(12):
-    for i in range(2):
-        tk.Label(win, text=f'{i+4}-{j}').grid(row=i, column=j)
+    tk.Button(win, text='combination 1').grid(row=j, column=6)
+
+for j in range(12):
+    tk.Button(win, text='combination 2').grid(row=j, column=7)
 
 def button_1_func():
     numbers = manager.throw()
