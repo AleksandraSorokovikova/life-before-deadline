@@ -30,8 +30,6 @@ def button_1_func():
     label_4.config(text=str(numbers[3]))
     label_5.config(text=str(numbers[4]))
     combs = manager.get_combinations(numbers)
-    print(numbers)
-    print(combs)
     for but, c in zip(combs_buts1, combs):
         but.config(text=f'{c}: {str(combs[c])}')
 
